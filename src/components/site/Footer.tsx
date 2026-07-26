@@ -1,0 +1,70 @@
+import { Link } from "@tanstack/react-router";
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border bg-background">
+      <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10">
+        <div className="grid gap-16 md:grid-cols-12">
+          <div className="md:col-span-6">
+            <p className="eyebrow">Colophon — MMXXVI</p>
+            <p className="editorial mt-6 text-4xl leading-[1.05] tracking-tight md:text-6xl">
+              We don't design for<br />
+              attention.<br />
+              <span className="text-[color:var(--accent-gold)] italic">We design for memory.</span>
+            </p>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="eyebrow">Directory</p>
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              {[
+                ["/about", "About"],
+                ["/services", "Services"],
+                ["/portfolio", "Portfolio"],
+                ["/editorial", "Editorial Archive"],
+                ["/process", "The Method"],
+                ["/contact", "Commission"],
+              ].map(([to, label]) => (
+                <li key={to}>
+                  <Link to={to} className="rule-hover hover:text-foreground">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="eyebrow">Correspondence</p>
+            <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+              <li>
+                <a href="mailto:studio@oryon.press" className="rule-hover hover:text-foreground">
+                  studio@oryon.press
+                </a>
+              </li>
+              <li>
+                <a href="https://instagram.com" className="rule-hover hover:text-foreground">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com" className="rule-hover hover:text-foreground">
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+            <p className="mt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+              An editorial creative studio.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground md:flex-row md:items-center">
+          <span>© ORYON Press — All work retained</span>
+          <span>Issue 07 / Vol. II</span>
+          <span>Composed in Cormorant &amp; Inter</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
