@@ -35,7 +35,7 @@ export const Route = createFileRoute("/portfolio/$slug")({
 });
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: (typeof import("@/lib/oryon-data").PROJECTS)[number] };
   const idx = PROJECTS.findIndex((p) => p.slug === project.slug);
   const next = PROJECTS[(idx + 1) % PROJECTS.length];
 

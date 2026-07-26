@@ -36,7 +36,7 @@ export const Route = createFileRoute("/editorial/$slug")({
 });
 
 function ArticleDetail() {
-  const { article } = Route.useLoaderData();
+  const { article } = Route.useLoaderData() as { article: (typeof import("@/lib/oryon-data").ARTICLES)[number] };
   const idx = ARTICLES.findIndex((a) => a.slug === article.slug);
   const next = ARTICLES[(idx + 1) % ARTICLES.length];
 
