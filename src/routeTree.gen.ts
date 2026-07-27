@@ -9,39 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AboutRouteImport } from './routes/about'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as EditorialRouteImport } from './routes/editorial'
-import { Route as PortfolioRouteImport } from './routes/portfolio'
-import { Route as ProcessRouteImport } from './routes/process'
 import { Route as ServicesRouteImport } from './routes/services'
-import { Route as EditorialSlugRouteImport } from './routes/editorial.$slug'
+import { Route as ProcessRouteImport } from './routes/process'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as EditorialRouteImport } from './routes/editorial'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as PortfolioSlugRouteImport } from './routes/portfolio.$slug'
+import { Route as EditorialSlugRouteImport } from './routes/editorial.$slug'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EditorialRoute = EditorialRouteImport.update({
-  id: '/editorial',
-  path: '/editorial',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PortfolioRoute = PortfolioRouteImport.update({
-  id: '/portfolio',
-  path: '/portfolio',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProcessRoute = ProcessRouteImport.update({
@@ -49,20 +29,40 @@ const ProcessRoute = ProcessRouteImport.update({
   path: '/process',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EditorialSlugRoute = EditorialSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => EditorialRoute,
+const EditorialRoute = EditorialRouteImport.update({
+  id: '/editorial',
+  path: '/editorial',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const PortfolioSlugRoute = PortfolioSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => PortfolioRoute,
+} as any)
+const EditorialSlugRoute = EditorialSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => EditorialRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -147,39 +147,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/editorial': {
-      id: '/editorial'
-      path: '/editorial'
-      fullPath: '/editorial'
-      preLoaderRoute: typeof EditorialRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/portfolio': {
-      id: '/portfolio'
-      path: '/portfolio'
-      fullPath: '/portfolio'
-      preLoaderRoute: typeof PortfolioRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/process': {
@@ -189,19 +161,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProcessRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/editorial/$slug': {
-      id: '/editorial/$slug'
-      path: '/$slug'
-      fullPath: '/editorial/$slug'
-      preLoaderRoute: typeof EditorialSlugRouteImport
-      parentRoute: typeof EditorialRoute
+    '/editorial': {
+      id: '/editorial'
+      path: '/editorial'
+      fullPath: '/editorial'
+      preLoaderRoute: typeof EditorialRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/portfolio/$slug': {
       id: '/portfolio/$slug'
@@ -209,6 +202,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/portfolio/$slug'
       preLoaderRoute: typeof PortfolioSlugRouteImport
       parentRoute: typeof PortfolioRoute
+    }
+    '/editorial/$slug': {
+      id: '/editorial/$slug'
+      path: '/$slug'
+      fullPath: '/editorial/$slug'
+      preLoaderRoute: typeof EditorialSlugRouteImport
+      parentRoute: typeof EditorialRoute
     }
   }
 }

@@ -9,6 +9,7 @@ export type Project = {
   objective: string;
   process: string[];
   result: string;
+  link?: string;
   gallery: { label: string; caption: string; tone: string }[];
 };
 

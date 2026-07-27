@@ -43,15 +43,15 @@ export function Footer() {
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               <li>
                 <a
-                  href="mailto:studio@oryon.press"
+                  href="mailto:jain.akshara.jain@gmail.com"
                   className="rule-hover hover:text-foreground"
                 >
-                  studio@oryon.press
+                  jain.akshara.jain@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com/oryon.press"
+                  href="https://instagram.com/oryonarchive"
                   className="rule-hover hover:text-foreground"
                 >
                   Instagram
@@ -59,7 +59,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://linkedin.com/company/oryon-studio"
+                  href="https://www.linkedin.com/in/akshara-jain-457241416"
                   className="rule-hover hover:text-foreground"
                 >
                   LinkedIn
@@ -73,7 +73,7 @@ export function Footer() {
         </div>
 
         <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground md:flex-row md:items-center">
-          <span>© ORYON Press — All work retained</span>
+          <span>© ORYON Archive — All work retained</span>
           <span>Issue 07 / Vol. II</span>
           <span>Composed in Cormorant &amp; Inter</span>
         </div>

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useForm } from "@formspree/react";
 import { PageShell } from "@/components/site/PageShell";
 
 export const Route = createFileRoute("/contact")({
@@ -21,8 +21,11 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
+const FORMSPREE_ID = "mbdnqkwq";
+
 function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [state, handleSubmit] = useForm(FORMSPREE_ID);
+  const sent = state.succeeded;
 
   return (
     <PageShell
@@ -47,10 +50,10 @@ function ContactPage() {
                   Email
                 </p>
                 <a
-                  href="mailto:studio@oryon.press"
+                  href="mailto:jain.akshara.jain@gmail.com"
                   className="editorial mt-2 block text-3xl transition-colors hover:text-[color:var(--accent-gold)] md:text-4xl"
                 >
-                  studio@oryon.press
+                  jain.akshara.jain@gmail.com
                 </a>
               </li>
               <li>
@@ -58,10 +61,10 @@ function ContactPage() {
                   LinkedIn
                 </p>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/akshara-jain-457241416"
                   className="editorial mt-2 block text-2xl transition-colors hover:text-[color:var(--accent-gold)] md:text-3xl"
                 >
-                  /company/oryon-studio
+                  /in/akshara-jain-457241416
                 </a>
               </li>
               <li>
@@ -69,10 +72,10 @@ function ContactPage() {
                   Instagram
                 </p>
                 <a
-                  href="https://instagram.com"
+                  href="https://instagram.com/oryonarchive"
                   className="editorial mt-2 block text-2xl transition-colors hover:text-[color:var(--accent-gold)] md:text-3xl"
                 >
-                  @oryon.press
+                  @oryonarchive
                 </a>
               </li>
             </ul>
@@ -89,10 +92,7 @@ function ContactPage() {
 
           <div className="md:col-span-7">
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSent(true);
-              }}
+              onSubmit={handleSubmit}
               className="space-y-8 rounded-lg border border-border bg-[color:var(--surface)] p-8 md:p-12"
             >
               <p className="eyebrow">§ Enquiry Form</p>
@@ -114,28 +114,42 @@ function ContactPage() {
                 label="The brand or project"
                 name="brand"
                 required
-                placeholder="Atrium Strength Club"
+                placeholder="Your brand name"
               />
 
-              <div>
+              <div className="relative">
                 <label className="block text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
                   Discipline of interest
                 </label>
-                <select
-                  name="discipline"
-                  className="mt-3 w-full appearance-none border-b border-border bg-transparent py-3 text-lg text-foreground outline-none focus:border-[color:var(--accent-gold)]"
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Select a discipline
-                  </option>
-                  <option>Brand Identity</option>
-                  <option>Editorial Social Media</option>
-                  <option>Content Strategy</option>
-                  <option>Website Design</option>
-                  <option>Promotional Campaign</option>
-                  <option>Creative Direction</option>
-                </select>
+                <div className="relative mt-3">
+                  <select
+                    name="discipline"
+                    required
+                    defaultValue=""
+                    className="peer w-full appearance-none border-b border-border bg-transparent py-3 pr-8 text-lg text-foreground outline-none transition-colors focus:border-[color:var(--accent-gold)]"
+                  >
+                    <option value="" disabled>
+                      Select a discipline
+                    </option>
+                    <option>Brand Identity</option>
+                    <option>Editorial Social Media</option>
+                    <option>Content Strategy</option>
+                    <option>Website Design</option>
+                    <option>Promotional Campaign</option>
+                    <option>Creative Direction</option>
+                  </select>
+                  <svg
+                    className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors peer-focus:text-[color:var(--accent-gold)]"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 6l4 4 4-4" />
+                  </svg>
+                </div>
               </div>
 
               <div>
@@ -157,10 +171,15 @@ function ContactPage() {
                 </p>
                 <button
                   type="submit"
-                  disabled={sent}
+                  disabled={state.submitting || sent}
                   className="glow-crimson inline-flex items-center gap-4 rounded-md border border-border bg-background px-8 py-4 text-[11px] uppercase tracking-[0.24em] disabled:opacity-60"
                 >
-                  {sent ? (
+                  {state.submitting ? (
+                    <>
+                      <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[color:var(--accent-gold)]" />
+                      Sending…
+                    </>
+                  ) : sent ? (
                     <>
                       <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent-gold)]" />
                       Received — thank you
@@ -173,6 +192,29 @@ function ContactPage() {
                   )}
                 </button>
               </div>
+              {state.errors && (
+                <div className="rounded-md border border-red-900/40 bg-red-950/20 px-5 py-4">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-red-400">
+                    Something went wrong
+                  </p>
+                  <p className="mt-2 text-sm text-red-300/80">
+                    Please check your entries and try again. If the problem
+                    persists, reach out directly via email.
+                  </p>
+                </div>
+              )}
+
+              {sent && (
+                <div className="rounded-md border border-[color:var(--accent-gold)]/20 bg-[color:var(--accent-gold)]/5 px-5 py-4">
+                  <p className="text-[11px] uppercase tracking-[0.24em] text-[color:var(--accent-gold)]">
+                    Enquiry received
+                  </p>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Thank you. We read every submission and will reply within
+                    two working days.
+                  </p>
+                </div>
+              )}
             </form>
           </div>
         </div>

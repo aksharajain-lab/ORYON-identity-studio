@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import { useInView } from "@/hooks/use-in-view";
 
 export function CTASection({
@@ -8,7 +9,7 @@ export function CTASection({
   buttonTo = "/contact",
 }: {
   eyebrow?: string;
-  headline: React.ReactNode;
+  headline: ReactNode;
   buttonLabel?: string;
   buttonTo?: string;
 }) {

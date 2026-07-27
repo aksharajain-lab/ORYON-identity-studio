@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 type ButtonLinkProps = ComponentProps<typeof Link> & {
   variant?: "outline" | "solid" | "ghost";
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const variants = {

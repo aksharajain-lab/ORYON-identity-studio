@@ -1,3 +1,7 @@
+import { Link } from "@tanstack/react-router";
+import type { Project } from "@/lib/oryon-data";
+import { PlateImage } from "./PlateImage";
+
 export function ProjectCard({
   project,
   index,
@@ -61,14 +65,15 @@ export function ProjectCard({
   }
 
   return (
-    <a
-    key={p.slug}
-    href={p.link ?? `/portfolio/${p.slug}`}
-    target={p.link ? "_blank" : undefined}
-    rel={p.link ? "noopener noreferrer" : undefined}
-    className={`group block ${span}`}
+    <Link
+      to="/portfolio/$slug"
+      params={{ slug: project.slug }}
+      className={`group block ${span ?? ""}`}
     >
       {content}
-    </a>
+    </Link>
   );
 }
+
+/** Alias used by the featured section on the landing page. */
+export const ProjectCardFeatured = ProjectCard;
