@@ -5,6 +5,7 @@ import { Footer } from "@/components/site/Footer";
 import { CTASection } from "@/components/site/CTASection";
 import { ButtonLink } from "@/components/site/ButtonLink";
 import { useInView } from "@/hooks/use-in-view";
+import { PROJECTS } from "@/lib/oryon-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,9 +34,10 @@ function Home() {
       <Hero />
       <ShortIntro />
       <ServicesPreview />
+      <SelectedWork />
       <MethodPreview />
       <CTASection
-        eyebrow="§ 06 — Commission"
+        eyebrow="§ 05 — Commission"
         headline={
           <>
             If you are building something you'd like to be remembered for,{" "}
@@ -83,14 +85,12 @@ function Hero() {
 
       <div className="container-editorial grid w-full gap-16 pb-20 md:grid-cols-12 md:pb-32">
         <div className="md:col-span-2">
-          <p className="eyebrow reveal">Vol. II · Issue 07</p>
+          <p className="eyebrow reveal">Vol. I · Issue 01</p>
           <p
             className="mt-6 text-xs uppercase tracking-[0.24em] text-muted-foreground reveal"
             style={{ animationDelay: "0.1s" }}
           >
-            MMXXVI
-            <br />
-            The Memory Issue
+            Est. MMXXVI
           </p>
         </div>
 
@@ -109,15 +109,10 @@ function Hero() {
           </h1>
 
           <div
-            className="mt-16 grid gap-10 md:grid-cols-12 reveal"
-            style={{ animationDelay: "1s" }}
+            className="mt-10 grid gap-10 md:grid-cols-12 reveal"
+            style={{ animationDelay: "0.8s" }}
           >
-            <p className="text-lg leading-relaxed text-muted-foreground md:col-span-6 md:text-xl">
-              ORYON is an editorial creative studio combining branding,
-              psychology, storytelling and digital design. A business can exist
-              without an identity. A memorable one cannot.
-            </p>
-            <div className="flex items-end justify-end gap-4 md:col-span-6">
+            <div className="flex items-end justify-end gap-4 md:col-span-12">
               <ButtonLink to="/portfolio" variant="outline">
                 View the Portfolio
               </ButtonLink>
@@ -129,10 +124,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-between container-editorial">
-        <span className="eyebrow">Scroll — Enter the archive</span>
-        <span className="eyebrow">N° 07</span>
-      </div>
+
     </section>
   );
 }
@@ -148,9 +140,9 @@ function ShortIntro() {
         </p>
         <div className={`md:col-span-9 in-view stagger-1 ${visible ? "visible" : ""}`}>
           <p className="editorial text-3xl leading-tight md:text-5xl">
-            An editorial creative studio that studies brands before it designs
-            them. Identity first. Aesthetics second. Everything else,{" "}
-            <span className="gold-italic">a consequence</span>.
+            ORYON is an editorial creative studio combining branding,
+            psychology, storytelling and digital design systems for
+            businesses and creators.
           </p>
           <div className="mt-12">
             <ButtonLink to="/about" variant="ghost">
@@ -201,6 +193,63 @@ function ServicesPreview() {
               </h3>
             </Link>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const FEATURED_PROJECTS = PROJECTS.slice(0, 2);
+
+function SelectedWork() {
+  const { ref, visible } = useInView();
+
+  return (
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
+      <div className="container-editorial py-24 md:py-40">
+        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
+          <div>
+            <p className="eyebrow">§ 03 — Selected Work</p>
+            <h2 className="editorial mt-4 text-4xl md:text-6xl">Recent projects.</h2>
+          </div>
+          <ButtonLink to="/portfolio" variant="ghost" className="hidden md:inline-flex">
+            View all →
+          </ButtonLink>
+        </div>
+
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+          {FEATURED_PROJECTS.map((p, i) => {
+            const common = 
+              `in-view group bg-surface p-8 transition-colors hover:bg-surface-2 md:p-12 stagger-${Math.min(i + 1, 4)} ${visible ? "visible" : ""}`;
+            const inner = (
+              <>
+                <p className="eyebrow">{p.category}</p>
+                <h3 className="editorial mt-4 text-2xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-3xl">
+                  {p.title}
+                </h3>
+                {p.footnote && (
+                  <p className="mt-3 text-xs italic text-[color:var(--accent-gold)]">
+                    {p.footnote}
+                  </p>
+                )}
+              </>
+            );
+            return p.link ? (
+              <a key={p.slug} href={p.link} target="_blank" rel="noopener noreferrer" className={common}>
+                {inner}
+              </a>
+            ) : (
+              <Link key={p.slug} to="/portfolio/$slug" params={{ slug: p.slug }} className={common}>
+                {inner}
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className={`in-view mt-10 text-center ${visible ? "visible" : ""}`}>
+          <ButtonLink to="/portfolio" variant="ghost">
+            View the full portfolio →
+          </ButtonLink>
         </div>
       </div>
     </section>

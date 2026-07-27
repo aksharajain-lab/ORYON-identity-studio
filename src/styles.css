@@ -112,7 +112,7 @@ body {
     background: currentColor;
     transform: scaleX(0);
     transform-origin: right;
-    transition: transform 0.5s cubic-bezier(0.7, 0, 0.2, 1);
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
   }
   &:hover::after {
     transform: scaleX(1);
@@ -155,40 +155,25 @@ body {
 }
 
 @utility page-enter {
-  animation: oryon-page-enter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: oryon-page-enter 1.0s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
+
 @utility reveal {
-  animation: oryon-reveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: oryon-reveal 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 @utility drift {
-  animation: oryon-drift 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: oryon-drift 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 @utility mask-in {
-  animation: oryon-mask 1.4s cubic-bezier(0.7, 0, 0.2, 1) both;
+  animation: oryon-mask 1.8s cubic-bezier(0.7, 0, 0.2, 1) both;
 }
 
 @utility glow-crimson {
-  transition: box-shadow 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+  transition: box-shadow 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   &:hover {
     box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent-crimson) 60%, transparent),
       0 8px 40px -12px color-mix(in oklab, var(--accent-crimson) 55%, transparent);
     border-color: color-mix(in oklab, var(--accent-crimson) 70%, transparent);
-  }
-}
-
-@utility card-hover {
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
-    box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.5);
-  }
-}
-
-@utility card-hover-ghost {
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  &:hover {
-    transform: translateY(-2px);
   }
 }
 
@@ -227,18 +212,18 @@ body {
 @utility in-view {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
   &.visible {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@utility stagger-1 { transition-delay: 0.08s; }
-@utility stagger-2 { transition-delay: 0.16s; }
-@utility stagger-3 { transition-delay: 0.24s; }
-@utility stagger-4 { transition-delay: 0.32s; }
+@utility stagger-1 { transition-delay: 0.12s; }
+@utility stagger-2 { transition-delay: 0.24s; }
+@utility stagger-3 { transition-delay: 0.36s; }
+@utility stagger-4 { transition-delay: 0.48s; }
 
 @utility gold-italic {
   font-style: italic;

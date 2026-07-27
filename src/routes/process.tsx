@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
 import { DossierStrip } from "@/components/site/FormField";
+import { CTASection } from "@/components/site/CTASection";
 
 export const Route = createFileRoute("/process")({
   head: () => ({
@@ -163,13 +164,18 @@ function ProcessPage() {
         </section>
       ))}
 
-      <section className="container-editorial py-32 md:py-48">
-        <p className="editorial text-4xl leading-tight md:text-6xl">
-          Every project we take on is a small study.
-          <br />
-          <em className="gold-italic">This is how we make sure it lasts.</em>
-        </p>
-      </section>
+      <CTASection
+        eyebrow="§ Commission — File N° 007"
+        headline={
+          <>
+            Ready to build something{" "}
+            <em className="gold-italic">memorable?</em>
+          </>
+        }
+        supportingText="Every engagement begins with a conversation about your goals, identity, and vision."
+        buttonLabel="Start a Consultation"
+        buttonTo="/contact"
+      />
     </PageShell>
   );
 }

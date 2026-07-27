@@ -164,6 +164,14 @@ function AboutPage() {
           ))}
         </ol>
       </Section>
+
+      <Section eyebrow="§ 06 — Behind ORYON" heading="Behind ORYON.">
+        <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          Founded by Akshara Jain, ORYON began as an exploration of identity,
+          culture, and editorial storytelling before evolving into a digital
+          identity studio creating memorable brands and websites.
+        </p>
+      </Section>
     </PageShell>
   );
 }

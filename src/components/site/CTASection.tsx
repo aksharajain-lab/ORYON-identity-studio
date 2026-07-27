@@ -5,11 +5,13 @@ import { useInView } from "@/hooks/use-in-view";
 export function CTASection({
   eyebrow = "§ Commission",
   headline,
+  supportingText,
   buttonLabel = "Begin correspondence",
   buttonTo = "/contact",
 }: {
   eyebrow?: string;
   headline: ReactNode;
+  supportingText?: string;
   buttonLabel?: string;
   buttonTo?: string;
 }) {
@@ -26,6 +28,11 @@ export function CTASection({
             <p className="editorial text-4xl leading-[1.02] md:text-7xl">
               {headline}
             </p>
+            {supportingText && (
+              <p className="mt-8 text-lg leading-relaxed text-muted-foreground md:text-xl md:max-w-2xl">
+                {supportingText}
+              </p>
+            )}
             <div className="mt-12">
               <Link
                 to={buttonTo}

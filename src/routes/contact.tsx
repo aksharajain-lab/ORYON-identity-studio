@@ -38,7 +38,7 @@ function ContactPage() {
           </em>
         </>
       }
-      lede="Every engagement begins with a single conversation. Tell us about the brand, the moment, and what you'd like to be remembered for."
+      lede="Every brand we work with begins as a conversation. Tell us where you are, what you're building, and what you'd like to be remembered for."
     >
       <section className="border-t border-border">
         <div className="mx-auto grid max-w-[1600px] gap-16 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
@@ -84,8 +84,8 @@ function ContactPage() {
               <p className="eyebrow">Response Time</p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 We reply to every commission enquiry within two working days.
-                Not every enquiry becomes a project. Every reply is written by
-                hand.
+                Not every conversation becomes a project — and that is by
+                design. Every reply is written by hand, with care.
               </p>
             </div>
           </div>
@@ -114,7 +114,7 @@ function ContactPage() {
                 label="The brand or project"
                 name="brand"
                 required
-                placeholder="Your brand name"
+                placeholder="What do you want to build?"
               />
 
               <div className="relative">
@@ -160,7 +160,7 @@ function ContactPage() {
                   name="message"
                   required
                   rows={5}
-                  placeholder="A paragraph is enough. We prefer specifics."
+                  placeholder="A few lines are enough. Specifics help us begin well."
                   className="mt-3 w-full resize-none border-b border-border bg-transparent py-3 text-lg text-foreground placeholder:text-muted-foreground/60 outline-none focus:border-[color:var(--accent-gold)]"
                 />
               </div>
@@ -182,7 +182,7 @@ function ContactPage() {
                   ) : sent ? (
                     <>
                       <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent-gold)]" />
-                      Received — thank you
+                      Received — we will read it within two days
                     </>
                   ) : (
                     <>
@@ -198,8 +198,8 @@ function ContactPage() {
                     Something went wrong
                   </p>
                   <p className="mt-2 text-sm text-red-300/80">
-                    Please check your entries and try again. If the problem
-                    persists, reach out directly via email.
+                    Please check your entries and try again. You can also
+                    reach us directly by email — we reply personally.
                   </p>
                 </div>
               )}
@@ -223,9 +223,9 @@ function ContactPage() {
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
           <p className="editorial text-4xl leading-[1.02] md:text-8xl">
-            "Let's build something<br />
+            "Every meaningful collaboration begins with a{" "}
             <em className="italic text-[color:var(--accent-gold)]">
-              unforgettable."
+              single conversation."
             </em>
           </p>
         </div>
