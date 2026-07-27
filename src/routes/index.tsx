@@ -3,6 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import { PROJECTS, ARTICLES } from "@/lib/oryon-data";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { ProjectCardFeatured } from "@/components/site/ProjectCard";
+import { ArticleCard } from "@/components/site/ArticleCard";
+import { CTASection } from "@/components/site/CTASection";
+import { ButtonLink } from "@/components/site/ButtonLink";
+import { useInView } from "@/hooks/use-in-view";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,9 +35,19 @@ function Home() {
       <Header />
       <Hero />
       <ShortIntro />
+      <ServicesPreview />
       <FeaturedProjects />
+      <MethodPreview />
       <FeaturedEditorial />
-      <ClosingCTA />
+      <CTASection
+        eyebrow="§ 06 — Commission"
+        headline={
+          <>
+            If you are building something you'd like to be remembered for,{" "}
+            <span className="gold-italic">we should talk.</span>
+          </>
+        }
+      />
       <Footer />
     </div>
   );
@@ -60,19 +75,18 @@ function Hero() {
       ref={ref}
       className="relative flex min-h-[100svh] items-end overflow-hidden pt-32"
       style={{
-        background: `radial-gradient(600px circle at ${pos.x}% ${pos.y}%, rgba(139,30,45,0.18), transparent 60%), radial-gradient(1200px circle at 80% 20%, rgba(201,177,140,0.06), transparent 55%), var(--background)`,
+        background: `radial-gradient(500px circle at ${pos.x}% ${pos.y}%, color-mix(in oklab, var(--accent-crimson) 14%, transparent), transparent 65%), radial-gradient(900px circle at 85% 15%, color-mix(in oklab, var(--accent-gold) 5%, transparent), transparent 55%), var(--background)`,
       }}
     >
-      {/* Ambient grid */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
-        <div className="mx-auto grid h-full max-w-[1600px] grid-cols-12 px-6 md:px-10">
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
+        <div className="container-editorial grid h-full grid-cols-12">
           {Array.from({ length: 12 }).map((_, i) => (
             <div key={i} className="border-l border-foreground last:border-r" />
           ))}
         </div>
       </div>
 
-      <div className="mx-auto grid w-full max-w-[1600px] gap-16 px-6 pb-20 md:grid-cols-12 md:px-10 md:pb-32">
+      <div className="container-editorial grid w-full gap-16 pb-20 md:grid-cols-12 md:pb-32">
         <div className="md:col-span-2">
           <p className="eyebrow reveal">Vol. II · Issue 07</p>
           <p
@@ -88,14 +102,11 @@ function Hero() {
         <div className="md:col-span-10">
           <h1 className="editorial text-6xl leading-[0.92] md:text-[9.5rem]">
             <span className="mask-in block">We don't design</span>
-            <span
-              className="mask-in block"
-              style={{ animationDelay: "0.3s" }}
-            >
+            <span className="mask-in block" style={{ animationDelay: "0.3s" }}>
               for attention.
             </span>
             <span
-              className="mask-in block italic text-[color:var(--accent-gold)]"
+              className="mask-in block gold-italic"
               style={{ animationDelay: "0.6s" }}
             >
               We design for memory.
@@ -112,24 +123,18 @@ function Hero() {
               without an identity. A memorable one cannot.
             </p>
             <div className="flex items-end justify-end gap-4 md:col-span-6">
-              <Link
-                to="/portfolio"
-                className="glow-crimson rounded-md border border-border px-6 py-4 text-[11px] uppercase tracking-[0.24em]"
-              >
+              <ButtonLink to="/portfolio" variant="outline">
                 View the Portfolio
-              </Link>
-              <Link
-                to="/contact"
-                className="rounded-md bg-foreground px-6 py-4 text-[11px] uppercase tracking-[0.24em] text-background transition hover:bg-[color:var(--accent-gold)]"
-              >
+              </ButtonLink>
+              <ButtonLink to="/contact" variant="solid">
                 Commission a study
-              </Link>
+              </ButtonLink>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-between px-6 md:px-10">
+      <div className="absolute bottom-8 left-0 right-0 flex items-center justify-between container-editorial">
         <span className="eyebrow">Scroll — Enter the archive</span>
         <span className="eyebrow">N° 07</span>
       </div>
@@ -138,27 +143,69 @@ function Hero() {
 }
 
 function ShortIntro() {
+  const { ref, visible } = useInView();
+
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto grid max-w-[1600px] gap-12 px-6 py-24 md:grid-cols-12 md:px-10 md:py-40">
-        <p className="eyebrow md:col-span-3">§ 01 — Introduction</p>
-        <div className="md:col-span-9">
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
+      <div className="container-editorial grid gap-12 py-24 md:grid-cols-12 md:py-40">
+        <p className={`eyebrow md:col-span-3 in-view ${visible ? "visible" : ""}`}>
+          § 01 — Introduction
+        </p>
+        <div className={`md:col-span-9 in-view stagger-1 ${visible ? "visible" : ""}`}>
           <p className="editorial text-3xl leading-tight md:text-5xl">
             An editorial creative studio that studies brands before it designs
             them. Identity first. Aesthetics second. Everything else,{" "}
-            <span className="italic text-[color:var(--accent-gold)]">
-              a consequence
-            </span>
-            .
+            <span className="gold-italic">a consequence</span>.
           </p>
           <div className="mt-12">
-            <Link
-              to="/about"
-              className="rule-hover text-xs uppercase tracking-[0.24em] text-foreground"
-            >
+            <ButtonLink to="/about" variant="ghost">
               Read the philosophy →
-            </Link>
+            </ButtonLink>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const SERVICES_PREVIEW = [
+  { n: "01", name: "Brand Identity", to: "/services" as const },
+  { n: "02", name: "Editorial Social", to: "/services" as const },
+  { n: "03", name: "Content Strategy", to: "/services" as const },
+  { n: "04", name: "Website Design", to: "/services" as const },
+  { n: "05", name: "Campaigns", to: "/services" as const },
+  { n: "06", name: "Creative Direction", to: "/services" as const },
+];
+
+function ServicesPreview() {
+  const { ref, visible } = useInView();
+
+  return (
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule bg-surface">
+      <div className="container-editorial py-24 md:py-40">
+        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
+          <div>
+            <p className="eyebrow">§ 02 — Offerings</p>
+            <h2 className="editorial mt-4 text-4xl md:text-6xl">What we do.</h2>
+          </div>
+          <ButtonLink to="/services" variant="ghost" className="hidden md:inline-flex">
+            All services →
+          </ButtonLink>
+        </div>
+
+        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+          {SERVICES_PREVIEW.map((s, i) => (
+            <Link
+              key={s.n}
+              to={s.to}
+              className={`in-view group bg-surface p-8 transition-colors hover:bg-surface-2 md:p-10 stagger-${Math.min(i + 1, 4)} ${visible ? "visible" : ""}`}
+            >
+              <p className="eyebrow">N° {s.n}</p>
+              <h3 className="editorial mt-4 text-2xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-3xl">
+                {s.name}
+              </h3>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
@@ -167,56 +214,88 @@ function ShortIntro() {
 
 function FeaturedProjects() {
   const featured = PROJECTS.slice(0, 3);
+  const { ref, visible } = useInView();
+
   return (
-    <section className="border-t border-border bg-[color:var(--surface)]">
-      <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
-        <div className="flex items-end justify-between border-b border-border pb-8">
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
+      <div className="container-editorial py-24 md:py-40">
+        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
           <div>
-            <p className="eyebrow">§ 02 — Selected Work</p>
-            <h2 className="editorial mt-4 text-4xl md:text-6xl">
-              Recent studies.
-            </h2>
+            <p className="eyebrow">§ 03 — Selected Work</p>
+            <h2 className="editorial mt-4 text-4xl md:text-6xl">Recent studies.</h2>
           </div>
-          <Link
-            to="/portfolio"
-            className="rule-hover hidden text-xs uppercase tracking-[0.24em] md:inline-block"
-          >
+          <ButtonLink to="/portfolio" variant="ghost" className="hidden md:inline-flex">
             All projects →
-          </Link>
+          </ButtonLink>
         </div>
 
         <div className="mt-16 grid gap-16 md:grid-cols-12">
           {featured.map((p, i) => (
-            <Link
+            <ProjectCardFeatured
               key={p.slug}
-              to="/portfolio/$slug"
-              params={{ slug: p.slug }}
-              className={`group block ${
-                i === 0 ? "md:col-span-8" : "md:col-span-4"
-              } ${i === 2 ? "md:col-start-9" : ""}`}
-            >
-              <div
-                className={`relative overflow-hidden rounded-lg border border-border bg-gradient-to-br ${p.gallery[0].tone} transition-all duration-700 group-hover:border-[color:var(--accent-crimson)]`}
-                style={{ aspectRatio: i === 0 ? "16/10" : "4/5" }}
-              >
-                <div className="absolute inset-0 flex items-end p-8">
-                  <div>
-                    <p className="eyebrow">{p.category} · {p.year}</p>
-                    <p className="editorial mt-3 text-2xl italic md:text-3xl">
-                      {p.client}
-                    </p>
-                  </div>
-                </div>
-                <div className="absolute right-6 top-6 h-8 w-8 rounded-full border border-foreground/40 opacity-0 transition-opacity group-hover:opacity-100" />
-              </div>
-              <div className="mt-6 flex items-start justify-between gap-6">
-                <h3 className="editorial text-xl md:text-2xl">{p.title}</h3>
-                <span className="mt-1 shrink-0 text-xs text-muted-foreground">
-                  N° 0{i + 1}
-                </span>
-              </div>
-            </Link>
+              project={p}
+              index={i}
+              span={
+                i === 0
+                  ? "md:col-span-8"
+                  : i === 2
+                    ? "md:col-span-4 md:col-start-9"
+                    : "md:col-span-4"
+              }
+              aspectRatio={i === 0 ? "16/10" : "4/5"}
+            />
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const METHOD_STAGES = [
+  { code: "I", name: "Observe" },
+  { code: "II", name: "Decode" },
+  { code: "III", name: "Create" },
+  { code: "IV", name: "Refine" },
+  { code: "V", name: "Launch" },
+];
+
+function MethodPreview() {
+  const { ref, visible } = useInView();
+
+  return (
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule bg-surface">
+      <div className="container-editorial py-24 md:py-40">
+        <div className={`in-view grid gap-16 md:grid-cols-12 ${visible ? "visible" : ""}`}>
+          <div className="md:col-span-4">
+            <p className="eyebrow">§ 04 — The Method</p>
+            <h2 className="editorial mt-4 text-4xl md:text-6xl">
+              Five stages.<br />
+              <span className="gold-italic">One discipline.</span>
+            </h2>
+            <div className="mt-10">
+              <ButtonLink to="/process" variant="ghost">
+                Read the dossier →
+              </ButtonLink>
+            </div>
+          </div>
+
+          <div className="md:col-span-8">
+            <ol className="divide-y divide-border border-y border-border">
+              {METHOD_STAGES.map((s, i) => (
+                <li
+                  key={s.code}
+                  className={`in-view group grid grid-cols-[auto_1fr] items-baseline gap-6 py-8 transition-colors hover:bg-background/40 md:gap-12 md:py-10 stagger-${Math.min(i + 1, 4)} ${visible ? "visible" : ""}`}
+                >
+                  <span className="editorial text-4xl text-[color:var(--accent-crimson)]/50 md:text-5xl">
+                    {s.code}
+                  </span>
+                  <p className="editorial text-2xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-4xl">
+                    {s.name}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -225,78 +304,25 @@ function FeaturedProjects() {
 
 function FeaturedEditorial() {
   const featured = ARTICLES.slice(0, 3);
+  const { ref, visible } = useInView();
+
   return (
-    <section className="border-t border-border">
-      <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
-        <div className="flex items-end justify-between border-b border-border pb-8">
+    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
+      <div className="container-editorial py-24 md:py-40">
+        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
           <div>
-            <p className="eyebrow">§ 03 — The Archive</p>
-            <h2 className="editorial mt-4 text-4xl md:text-6xl">
-              From the Editorial.
-            </h2>
+            <p className="eyebrow">§ 05 — The Archive</p>
+            <h2 className="editorial mt-4 text-4xl md:text-6xl">From the Editorial.</h2>
           </div>
-          <Link
-            to="/editorial"
-            className="rule-hover hidden text-xs uppercase tracking-[0.24em] md:inline-block"
-          >
+          <ButtonLink to="/editorial" variant="ghost" className="hidden md:inline-flex">
             Enter the archive →
-          </Link>
+          </ButtonLink>
         </div>
 
         <div className="mt-16 grid gap-x-10 gap-y-16 md:grid-cols-3">
           {featured.map((a, i) => (
-            <Link
-              key={a.slug}
-              to="/editorial/$slug"
-              params={{ slug: a.slug }}
-              className="group block border-t border-border pt-8"
-            >
-              <div className="flex items-center justify-between">
-                <p className="eyebrow">{a.category}</p>
-                <span className="text-xs text-muted-foreground">
-                  N° {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="editorial mt-6 text-2xl leading-tight transition-colors group-hover:text-[color:var(--accent-gold)] md:text-3xl">
-                {a.title}
-              </h3>
-              <p className="mt-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                {a.dek}
-              </p>
-              <p className="mt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                {a.readingTime} read · {a.issue}
-              </p>
-            </Link>
+            <ArticleCard key={a.slug} article={a} index={i} />
           ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ClosingCTA() {
-  return (
-    <section className="border-t border-border bg-[color:var(--surface)]">
-      <div className="mx-auto max-w-[1600px] px-6 py-32 md:px-10 md:py-48">
-        <div className="grid gap-16 md:grid-cols-12">
-          <p className="eyebrow md:col-span-3">§ 04 — Commission</p>
-          <div className="md:col-span-9">
-            <p className="editorial text-4xl leading-[1.02] md:text-7xl">
-              If you are building something you'd like to be remembered for,{" "}
-              <span className="italic text-[color:var(--accent-gold)]">
-                we should talk.
-              </span>
-            </p>
-            <div className="mt-12">
-              <Link
-                to="/contact"
-                className="glow-crimson inline-flex items-center gap-4 rounded-md border border-border px-8 py-5 text-[11px] uppercase tracking-[0.24em]"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent-crimson)]" />
-                Begin correspondence
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
     </section>

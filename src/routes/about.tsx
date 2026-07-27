@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
+import { Section } from "@/components/site/Section";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -55,29 +56,25 @@ function AboutPage() {
       eyebrow="§ About — File N° 002"
       title={
         <>
-          A studio built on <em className="italic text-[color:var(--accent-gold)]">
-            observation
-          </em>{" "}
-          before ornament.
+          A studio built on{" "}
+          <em className="gold-italic">observation</em> before ornament.
         </>
       }
       lede="ORYON began as an editorial publication. Not to chase trends, but to study them. Everything we design still begins with the same question we started with: why do certain things stay with us while others disappear?"
     >
-      {/* Philosophy */}
       <Section eyebrow="§ 01 — Philosophy" heading="Identity before aesthetics.">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="editorial text-3xl leading-[1.15] md:text-4xl">
-              Beautiful design attracts attention. Meaningful design earns
-              trust.
+              Beautiful design attracts attention. Meaningful design earns trust.
             </p>
           </div>
           <div className="space-y-6 text-base leading-relaxed text-muted-foreground md:col-span-6">
             <p>
               We believe every brand already has a story. Our role isn't to
               invent it—it's to uncover it, refine it, and express it through
-              visuals, language, and digital experiences that feel
-              unmistakably authentic.
+              visuals, language, and digital experiences that feel unmistakably
+              authentic.
             </p>
             <p>
               Every color, typeface, sentence and interaction exists for a
@@ -87,7 +84,6 @@ function AboutPage() {
         </div>
       </Section>
 
-      {/* Why Identity Matters */}
       <Section
         eyebrow="§ 02 — Why Identity Matters"
         heading="A business can exist without an identity."
@@ -97,12 +93,12 @@ function AboutPage() {
           <div className="space-y-6 text-lg leading-relaxed text-muted-foreground md:col-span-7">
             <p>
               You can trade, invoice, and grow without one. What you cannot do
-              is be remembered. Memory requires a consistent voice, a
-              consistent posture, a consistent set of refusals.
+              is be remembered. Memory requires a consistent voice, a consistent
+              posture, a consistent set of refusals.
             </p>
             <p>
-              Identity is the argument your brand makes for its own existence.
-              A weak argument produces a weak memory.
+              Identity is the argument your brand makes for its own existence. A
+              weak argument produces a weak memory.
             </p>
           </div>
           <div className="md:col-span-5">
@@ -113,17 +109,18 @@ function AboutPage() {
         </div>
       </Section>
 
-      {/* Vision */}
-      <Section eyebrow="§ 03 — Our Vision" heading="Editorial thinking, applied to identity.">
+      <Section
+        eyebrow="§ 03 — Our Vision"
+        heading="Editorial thinking, applied to identity."
+      >
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
           We are building a small, opinionated studio that treats brand work
-          the way a serious magazine treats a feature story—researched,
-          argued, edited, and set with intention. We would rather ship one
-          project a quarter that is remembered than twelve that are forgotten.
+          the way a serious magazine treats a feature story—researched, argued,
+          edited, and set with intention. We would rather ship one project a
+          quarter that is remembered than twelve that are forgotten.
         </p>
       </Section>
 
-      {/* Principles */}
       <Section
         eyebrow="§ 04 — What We Believe"
         heading="Four principles, held closely."
@@ -133,7 +130,7 @@ function AboutPage() {
           {PRINCIPLES.map((p) => (
             <div
               key={p.n}
-              className="group bg-[color:var(--surface)] p-10 transition-colors hover:bg-[color:var(--surface-2)] md:p-14"
+              className="group bg-surface p-10 transition-colors hover:bg-surface-2 md:p-14"
             >
               <div className="flex items-start justify-between">
                 <p className="eyebrow">N° {p.n}</p>
@@ -150,13 +147,12 @@ function AboutPage() {
         </div>
       </Section>
 
-      {/* Manifesto */}
       <Section eyebrow="§ 05 — The ORYON Manifesto" heading="The house rules.">
         <ol className="mt-4 divide-y divide-border border-y border-border">
           {MANIFESTO.map((line, i) => (
             <li
               key={i}
-              className="group grid grid-cols-[auto_1fr] items-baseline gap-6 py-8 transition-colors hover:bg-[color:var(--surface)] md:gap-12 md:py-12"
+              className="group grid grid-cols-[auto_1fr] items-baseline gap-6 py-8 transition-colors hover:bg-surface md:gap-12 md:py-12"
             >
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
@@ -169,33 +165,5 @@ function AboutPage() {
         </ol>
       </Section>
     </PageShell>
-  );
-}
-
-function Section({
-  eyebrow,
-  heading,
-  children,
-  alt,
-}: {
-  eyebrow: string;
-  heading: string;
-  children: React.ReactNode;
-  alt?: boolean;
-}) {
-  return (
-    <section
-      className={`border-t border-border ${alt ? "bg-[color:var(--surface)]" : ""}`}
-    >
-      <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-32">
-        <div className="mb-16 grid gap-6 md:grid-cols-12 md:gap-10">
-          <p className="eyebrow md:col-span-3">{eyebrow}</p>
-          <h2 className="editorial text-3xl leading-tight md:col-span-9 md:text-6xl">
-            {heading}
-          </h2>
-        </div>
-        {children}
-      </div>
-    </section>
   );
 }

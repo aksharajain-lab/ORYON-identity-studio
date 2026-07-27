@@ -1,5 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
+import { CTASection } from "@/components/site/CTASection";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -107,23 +108,20 @@ function ServicesPage() {
       eyebrow="§ Services — File N° 003"
       title={
         <>
-          Six offerings.<br />
-          <em className="italic text-[color:var(--accent-gold)]">
-            One method.
-          </em>
+          Six offerings.
+          <br />
+          <em className="gold-italic">One method.</em>
         </>
       }
       lede="We do not sell packages. Each engagement is a small commission—researched, argued and produced with the same care an editor brings to a cover story."
     >
-      <div className="border-t border-border">
+      <div className="section-rule">
         {SERVICES.map((s, i) => (
           <article
             key={s.n}
-            className={`border-b border-border ${
-              i % 2 === 1 ? "bg-[color:var(--surface)]" : ""
-            }`}
+            className={`border-b border-border ${i % 2 === 1 ? "bg-surface" : ""}`}
           >
-            <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10 md:py-32">
+            <div className="container-editorial py-20 md:py-32">
               <div className="grid gap-16 md:grid-cols-12">
                 <div className="md:col-span-4">
                   <p className="eyebrow">Service N° {s.n}</p>
@@ -163,23 +161,16 @@ function ServicesPage() {
         ))}
       </div>
 
-      <section className="mx-auto max-w-[1600px] px-6 py-32 md:px-10 md:py-48">
-        <div className="grid gap-16 md:grid-cols-12">
-          <p className="eyebrow md:col-span-3">§ Enquire</p>
-          <div className="md:col-span-9">
-            <p className="editorial text-4xl leading-tight md:text-6xl">
-              Every engagement begins with a single conversation. There is no
-              intake form worth the words that come out of it.
-            </p>
-            <Link
-              to="/contact"
-              className="glow-crimson mt-12 inline-flex items-center gap-4 rounded-md border border-border px-8 py-5 text-[11px] uppercase tracking-[0.24em]"
-            >
-              Request a conversation
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection
+        eyebrow="§ Enquire"
+        headline={
+          <>
+            Every engagement begins with a single conversation. There is no
+            intake form worth the words that come out of it.
+          </>
+        }
+        buttonLabel="Request a conversation"
+      />
     </PageShell>
   );
 }

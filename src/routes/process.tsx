@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell } from "@/components/site/PageShell";
+import { DossierStrip } from "@/components/site/FormField";
 
 export const Route = createFileRoute("/process")({
   head: () => ({
@@ -94,42 +95,34 @@ function ProcessPage() {
       eyebrow="§ Process — Classified Dossier N° 006"
       title={
         <>
-          The Method.<br />
-          <em className="italic text-[color:var(--accent-gold)]">
-            Five stages.
-          </em>
+          The Method.
+          <br />
+          <em className="gold-italic">Five stages.</em>
         </>
       }
       lede="Not a timeline. A dossier. Every project moves through the same five phases, in the same order, with the same discipline."
     >
-      {/* Dossier heading strip */}
-      <div className="border-y border-border bg-[color:var(--surface)]">
-        <div className="mx-auto grid max-w-[1600px] grid-cols-2 items-center gap-4 px-6 py-6 text-[11px] uppercase tracking-[0.24em] text-muted-foreground md:grid-cols-4 md:px-10">
-          <div>Classification — Internal</div>
-          <div>Volume — II</div>
-          <div>File — 006 / Method</div>
-          <div className="text-right">Status — Active</div>
-        </div>
-      </div>
+      <DossierStrip
+        items={[
+          { label: "Classification — Internal" },
+          { label: "Volume — II" },
+          { label: "File — 006 / Method" },
+          { label: "Status — Active", align: "right" },
+        ]}
+      />
 
       {STAGES.map((s, i) => (
         <section
           key={s.code}
-          className={`border-b border-border ${
-            i % 2 === 1 ? "bg-[color:var(--surface)]" : ""
-          }`}
+          className={`border-b border-border ${i % 2 === 1 ? "bg-surface" : ""}`}
         >
-          <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
+          <div className="container-editorial py-24 md:py-40">
             <div className="grid gap-16 md:grid-cols-12">
               <div className="md:col-span-4">
-                <div className="flex items-baseline gap-6">
-                  <span className="editorial text-[8rem] leading-none text-[color:var(--accent-crimson)]/40 md:text-[12rem]">
-                    {s.code}
-                  </span>
-                </div>
-                <p className="eyebrow mt-6">
-                  File Ref — {s.slug}
-                </p>
+                <span className="editorial text-[8rem] leading-none text-[color:var(--accent-crimson)]/40 md:text-[12rem]">
+                  {s.code}
+                </span>
+                <p className="eyebrow mt-6">File Ref — {s.slug}</p>
               </div>
 
               <div className="md:col-span-5">
@@ -149,10 +142,7 @@ function ProcessPage() {
                 <p className="eyebrow mb-6">Contents</p>
                 <ul className="space-y-3 border-l border-border pl-6">
                   {s.notes.map((n) => (
-                    <li
-                      key={n}
-                      className="text-sm text-foreground"
-                    >
+                    <li key={n} className="text-sm text-foreground">
                       — {n}
                     </li>
                   ))}
@@ -173,12 +163,11 @@ function ProcessPage() {
         </section>
       ))}
 
-      <section className="mx-auto max-w-[1600px] px-6 py-32 md:px-10 md:py-48">
+      <section className="container-editorial py-32 md:py-48">
         <p className="editorial text-4xl leading-tight md:text-6xl">
-          Every project we take on is a small study.<br />
-          <em className="italic text-[color:var(--accent-gold)]">
-            This is how we make sure it lasts.
-          </em>
+          Every project we take on is a small study.
+          <br />
+          <em className="gold-italic">This is how we make sure it lasts.</em>
         </p>
       </section>
     </PageShell>

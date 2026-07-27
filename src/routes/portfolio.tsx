@@ -66,54 +66,77 @@ function PortfolioPage() {
 
       <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-10 md:py-24">
         <div className="grid gap-x-10 gap-y-20 md:grid-cols-12">
-          {filtered.map((p, i) => {
-            const span =
-              i % 5 === 0
-                ? "md:col-span-8"
-                : i % 5 === 1
-                  ? "md:col-span-4"
-                  : i % 5 === 2
-                    ? "md:col-span-5"
-                    : i % 5 === 3
-                      ? "md:col-span-7"
-                      : "md:col-span-6";
-            return (
-              <Link
-                key={p.slug}
-                to="/portfolio/$slug"
-                params={{ slug: p.slug }}
-                className={`group block ${span}`}
-              >
-                <div
-                  className={`relative overflow-hidden rounded-lg border border-border bg-gradient-to-br ${p.gallery[0].tone} transition-all duration-700 group-hover:border-[color:var(--accent-crimson)]`}
-                  style={{ aspectRatio: i % 2 === 0 ? "4/5" : "3/4" }}
-                >
-                  <div className="absolute inset-0 flex flex-col justify-between p-8">
-                    <div className="flex items-start justify-between">
-                      <p className="eyebrow">N° {String(i + 1).padStart(3, "0")}</p>
-                      <p className="eyebrow">{p.year}</p>
-                    </div>
-                    <div>
-                      <p className="eyebrow text-[color:var(--accent-gold)]">
-                        {p.category}
-                      </p>
-                      <h3 className="editorial mt-3 text-3xl italic leading-tight md:text-4xl">
-                        {p.client}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <h4 className="editorial text-xl md:text-2xl">
-                    {p.title}
-                  </h4>
-                  <p className="mt-3 text-sm text-muted-foreground">
-                    {p.summary}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
+        {filtered.map((p, i) => {
+  const span =
+    i % 5 === 0
+      ? "md:col-span-8"
+      : i % 5 === 1
+        ? "md:col-span-4"
+        : i % 5 === 2
+          ? "md:col-span-5"
+          : i % 5 === 3
+            ? "md:col-span-7"
+            : "md:col-span-6";
+
+  const content = (
+    <>
+      <div
+        className={`relative overflow-hidden rounded-lg border border-border bg-gradient-to-br ${p.gallery[0].tone} transition-all duration-700 group-hover:border-[color:var(--accent-crimson)]`}
+        style={{ aspectRatio: i % 2 === 0 ? "4/5" : "3/4" }}
+      >
+        <div className="absolute inset-0 flex flex-col justify-between p-8">
+          <div className="flex items-start justify-between">
+            <p className="eyebrow">
+              N° {String(i + 1).padStart(3, "0")}
+            </p>
+            <p className="eyebrow">{p.year}</p>
+          </div>
+
+          <div>
+            <p className="eyebrow text-[color:var(--accent-gold)]">
+              {p.category}
+            </p>
+
+            <h3 className="editorial mt-3 text-3xl italic leading-tight md:text-4xl">
+              {p.client}
+            </h3>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6">
+        <h4 className="editorial text-xl md:text-2xl">
+          {p.title}
+        </h4>
+
+        <p className="mt-3 text-sm text-muted-foreground">
+          {p.summary}
+        </p>
+      </div>
+    </>
+  );
+
+  return p.link ? (
+    <a
+      key={p.slug}
+      href={p.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group block ${span}`}
+    >
+      {content}
+    </a>
+  ) : (
+    <Link
+      key={p.slug}
+      to="/portfolio/$slug"
+      params={{ slug: p.slug }}
+      className={`group block ${span}`}
+    >
+      {content}
+    </Link>
+  );
+})}
         </div>
       </div>
     </PageShell>

@@ -68,11 +68,12 @@ function EditorialIndex() {
 
       {featured && (
         <section className="border-b border-border">
-          <Link
-            to="/editorial/$slug"
-            params={{ slug: featured.slug }}
-            className="group block"
-          >
+          <a
+  href="https://heyzine.com/flip-book/d16cb564cc.html"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="group block"
+>
             <div className="mx-auto grid max-w-[1600px] gap-12 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
               <div className="md:col-span-5">
                 <div
@@ -102,7 +103,7 @@ function EditorialIndex() {
                 </p>
               </div>
             </div>
-          </Link>
+            </a>
         </section>
       )}
 

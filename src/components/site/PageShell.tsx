@@ -7,18 +7,20 @@ export function PageShell({
   eyebrow,
   title,
   lede,
+  fullBleed,
 }: {
   children: ReactNode;
   eyebrow?: string;
   title?: ReactNode;
   lede?: ReactNode;
+  fullBleed?: boolean;
 }) {
   return (
     <div className="noise min-h-screen bg-background text-foreground">
       <Header />
       <main className="pt-28 md:pt-32">
         {(eyebrow || title || lede) && (
-          <section className="mx-auto max-w-[1600px] px-6 pb-16 pt-8 md:px-10 md:pb-24 md:pt-16">
+          <section className="container-editorial pb-16 pt-8 md:pb-24 md:pt-16">
             {eyebrow && <p className="eyebrow reveal">{eyebrow}</p>}
             {title && (
               <h1
@@ -38,7 +40,7 @@ export function PageShell({
             )}
           </section>
         )}
-        {children}
+        {fullBleed ? children : <div>{children}</div>}
       </main>
       <Footer />
     </div>

@@ -1,30 +1,34 @@
 import { Link } from "@tanstack/react-router";
 
+const DIRECTORY = [
+  ["/about", "About"],
+  ["/services", "Services"],
+  ["/portfolio", "Portfolio"],
+  ["/editorial", "Editorial Archive"],
+  ["/process", "The Method"],
+  ["/contact", "Commission"],
+] as const;
+
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-[1600px] px-6 py-20 md:px-10">
+    <footer className="section-rule bg-background">
+      <div className="container-editorial py-20">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="eyebrow">Colophon — MMXXVI</p>
             <p className="editorial mt-6 text-4xl leading-[1.05] tracking-tight md:text-6xl">
-              We don't design for<br />
-              attention.<br />
-              <span className="text-[color:var(--accent-gold)] italic">We design for memory.</span>
+              We don't design for
+              <br />
+              attention.
+              <br />
+              <span className="gold-italic">We design for memory.</span>
             </p>
           </div>
 
           <div className="md:col-span-3">
             <p className="eyebrow">Directory</p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
-              {[
-                ["/about", "About"],
-                ["/services", "Services"],
-                ["/portfolio", "Portfolio"],
-                ["/editorial", "Editorial Archive"],
-                ["/process", "The Method"],
-                ["/contact", "Commission"],
-              ].map(([to, label]) => (
+              {DIRECTORY.map(([to, label]) => (
                 <li key={to}>
                   <Link to={to} className="rule-hover hover:text-foreground">
                     {label}
@@ -38,17 +42,26 @@ export function Footer() {
             <p className="eyebrow">Correspondence</p>
             <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
               <li>
-                <a href="mailto:studio@oryon.press" className="rule-hover hover:text-foreground">
+                <a
+                  href="mailto:studio@oryon.press"
+                  className="rule-hover hover:text-foreground"
+                >
                   studio@oryon.press
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com" className="rule-hover hover:text-foreground">
+                <a
+                  href="https://instagram.com/oryon.press"
+                  className="rule-hover hover:text-foreground"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com" className="rule-hover hover:text-foreground">
+                <a
+                  href="https://linkedin.com/company/oryon-studio"
+                  className="rule-hover hover:text-foreground"
+                >
                   LinkedIn
                 </a>
               </li>

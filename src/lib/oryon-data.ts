@@ -30,24 +30,24 @@ export type Article = {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "atrium-gym",
-    title: "Atrium — A Gym That Reads Like a Manifesto",
-    category: "Web Design",
-    year: "2026",
-    client: "Atrium Strength Club",
+    slug: "City-gym",
+title: "City Gym — Digital Presence & Website Design",
+category: "Web Design",
+year: "2026",
+client: "City Gym",
+link: "https://citygymshahdara.vercel.app/",
     summary:
-      "A dark, editorial website for a members-only strength club—closer to a fashion house than a fitness brand.",
+      "A modern fitness website paired with a live functional BMI calculator designed to help a local gym showcase its facilities, services, and membership experience online.",
     overview:
-      "Atrium approached us wanting a website that felt closer to a fashion house than a fitness brand. We built a monochrome digital environment where discipline, weight and quiet ambition become the aesthetic.",
-    objective:
-      "Reposition a private strength club as a lifestyle institution. Move perception from 'gym' to 'membership'—the way one belongs to a library, not a chain.",
+    "Designed a complete digital presence for City Gym with a focus on accessibility, user experience, and converting visitors into potential members.",
+    objective:"Create a professional online platform where customers can explore the gym, check facilities, calculate fitness metrics, and easily connect for enquiries.",
     process: [
-      "Studied the vocabulary of luxury hospitality and old-world athletic clubs to inform tone.",
-      "Built a typographic system where numerals carry as much weight as headlines—repetition, sets, mileage.",
-      "Designed a booking flow that reads like reserving a table at a private restaurant.",
-    ],
+          "Designed a clean visual identity focused on strength, movement and accessibility.",
+          "Built sections for services, gallery, location, and membership enquiries.",
+          "Integrated interactive elements including BMI calculator and contact flow.",
+         ],
     result:
-      "Membership inquiries increased 240% within the first quarter of launch. Retention of trial members rose from 34% to 61%.",
+    "Delivered a responsive website concept that gives the gym a stronger digital presence and makes essential information easier for potential members to access.",
     gallery: [
       { label: "Home / Hero", caption: "Full-bleed portrait, single serif line, a whispered CTA.", tone: "from-neutral-900 to-neutral-800" },
       { label: "Membership", caption: "Editorial pricing table—no plans, only tiers of commitment.", tone: "from-neutral-950 to-neutral-900" },
@@ -56,11 +56,11 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "maison-salon",
-    title: "Maison Ovide — A Salon With a Point of View",
+    slug: "Cutting Edge-salon",
+    title: "Cutting Edge Salon — Website Design & Booking System",
     category: "Web Design",
     year: "2026",
-    client: "Ovide",
+    client: "Cutting Edge Salon",
     summary:
       "Editorial website and booking system for an atelier-style hair salon in the old quarter.",
     overview:
@@ -100,7 +100,7 @@ export const PROJECTS: Project[] = [
     result:
       "Grew from 0 to 42k readers in eight months without paid promotion. Featured in three design publications.",
     gallery: [
-      { label: "Issue 01 — Klaus", caption: "The compulsion for legacy, dissected in ten slides.", tone: "from-neutral-950 to-red-950/40" },
+      { label: "Issue 01 — ", caption: "The compulsion for legacy, dissected in ten slides.", tone: "from-neutral-950 to-red-950/40" },
       { label: "Issue 02 — Ophelia", caption: "Grief as inheritance. Set in Cormorant Italic.", tone: "from-stone-900 to-neutral-900" },
       { label: "Issue 03 — The Archivist", caption: "On the psychology of preservation.", tone: "from-neutral-900 to-stone-950" },
     ],
@@ -131,11 +131,12 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "obsidian-issue-klaus",
-    title: "Klaus — OBSIDIAN Issue N°01",
+    slug: "obsidian-issue-Klaus-Mikaelson",
+    title: " — OBSIDIAN Issue N°01",
     category: "Editorial",
     year: "2026",
     client: "ORYON Press",
+    link: "https://heyzine.com/flip-book/d16cb564cc.html",
     summary:
       "A magazine-length character study, designed as a printed folio and digital reader.",
     overview:
@@ -150,7 +151,7 @@ export const PROJECTS: Project[] = [
     result:
       "Read cover-to-cover by 78% of subscribers. Requested for reprint by two independent bookstores.",
     gallery: [
-      { label: "Cover", caption: "A single portrait, a single word: Klaus.", tone: "from-neutral-950 to-red-950/50" },
+      { label: "Cover", caption: "A single portrait, a single word: .", tone: "from-neutral-950 to-red-950/50" },
       { label: "Chapter Openers", caption: "Roman numerals, wide leading, no images.", tone: "from-stone-950 to-neutral-950" },
       { label: "Interstitials", caption: "Full-bleed archive imagery between essays.", tone: "from-neutral-900 to-stone-900" },
     ],
@@ -184,8 +185,8 @@ export const PROJECTS: Project[] = [
 
 export const ARTICLES: Article[] = [
   {
-    slug: "klaus-mikaelson-obsidian",
-    title: "Klaus Mikaelson: The Compulsion for Legacy",
+    slug: "-Klaus-Mikaelson-obsidian",
+    title: " Klaus Mikaelson: The Compulsion for Legacy",
     category: "Magazine Issues",
     issue: "OBSIDIAN — Issue N°01",
     readingTime: "18 min",
@@ -194,7 +195,7 @@ export const ARTICLES: Article[] = [
       {
         heading: "I. The Man Who Cannot Be Forgotten",
         body: [
-          "Immortality is not a gift when memory is your only unit of measure. Klaus does not fear death. He fears irrelevance—and this is the wound the entire character is built around.",
+          "Immortality is not a gift when memory is your only unit of measure.  does not fear death. He fears irrelevance—and this is the wound the entire character is built around.",
           "Every empire, every painting, every child—each is a small argument against being unmade by time.",
         ],
       },
