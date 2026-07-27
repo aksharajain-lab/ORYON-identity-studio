@@ -49,7 +49,7 @@ function ArticleDetail() {
         <p className="eyebrow">
           {article.category} · {article.issue}
         </p>
-        <h1 className="editorial reveal mt-8 text-4xl leading-[1.02] md:text-7xl">
+        <h1 className="editorial reveal mt-8 text-3xl leading-[1.05] md:text-7xl">
           {article.title}
         </h1>
         <p
@@ -89,7 +89,7 @@ function ArticleDetail() {
           {article.chapters.map((c, i) => (
             <section key={i} id={`ch-${i}`} className="mb-20 last:mb-0">
               <p className="eyebrow mb-6">Chapter {String(i + 1).padStart(2, "0")}</p>
-              <h2 className="editorial mb-10 text-3xl leading-tight md:text-5xl">
+              <h2 className="editorial mb-10 text-2xl leading-tight md:text-5xl">
                 {c.heading}
               </h2>
               <div className="space-y-6 text-lg leading-[1.8] text-foreground/90 md:text-xl">
@@ -125,7 +125,7 @@ function ArticleDetail() {
           <div className="mx-auto flex max-w-[1200px] flex-col gap-4 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-10 md:py-24">
             <div>
               <p className="eyebrow">Next entry →</p>
-              <p className="editorial mt-4 text-3xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-5xl">
+              <p className="editorial mt-4 text-2xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-5xl">
                 {next.title}
               </p>
             </div>

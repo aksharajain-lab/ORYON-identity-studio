@@ -24,7 +24,7 @@ export function PageShell({
             {eyebrow && <p className="eyebrow reveal">{eyebrow}</p>}
             {title && (
               <h1
-                className="editorial reveal mt-6 max-w-5xl text-5xl leading-[0.98] md:text-8xl"
+                className="editorial reveal mt-6 max-w-5xl text-4xl leading-[0.98] md:text-8xl"
                 style={{ animationDelay: "0.1s" }}
               >
                 {title}

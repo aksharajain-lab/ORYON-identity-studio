@@ -55,7 +55,7 @@ function ProjectDetail() {
               <p className="eyebrow">
                 {project.category} · {project.year} · {project.client}
               </p>
-              <h1 className="editorial reveal mt-6 text-5xl leading-[0.98] md:text-8xl">
+              <h1 className="editorial reveal mt-6 text-4xl leading-[0.98] md:text-8xl">
                 {project.title}
               </h1>
               <p
@@ -110,7 +110,7 @@ function ProjectDetail() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-32">
           <p className="eyebrow">§ Design Process</p>
-          <h2 className="editorial mt-6 text-4xl md:text-6xl">
+          <h2 className="editorial mt-6 text-3xl md:text-6xl">
             How it was made.
           </h2>
           <ol className="mt-16 divide-y divide-border border-y border-border">
@@ -135,7 +135,7 @@ function ProjectDetail() {
       <section className="border-b border-border bg-[color:var(--surface)]">
         <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-32">
           <p className="eyebrow">§ Visual Gallery</p>
-          <h2 className="editorial mt-6 text-4xl md:text-6xl">Selected plates.</h2>
+          <h2 className="editorial mt-6 text-3xl md:text-6xl">Selected plates.</h2>
           <div className="mt-16 grid gap-10 md:grid-cols-2">
             {project.gallery.map((g, i) => (
               <figure
@@ -147,7 +147,7 @@ function ProjectDetail() {
                   style={{ aspectRatio: i === 0 ? "21/9" : "4/3" }}
                 >
                   <div className="absolute inset-0 flex items-end p-8">
-                    <p className="editorial text-3xl italic md:text-5xl">
+                    <p className="editorial text-2xl italic md:text-5xl">
                       Plate {String(i + 1).padStart(2, "0")}
                     </p>
                   </div>
@@ -167,7 +167,7 @@ function ProjectDetail() {
         <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
           <div className="grid gap-16 md:grid-cols-12">
             <p className="eyebrow md:col-span-3">§ Final Result</p>
-            <p className="editorial md:col-span-9 text-3xl leading-tight md:text-5xl">
+            <p className="editorial md:col-span-9 text-2xl leading-tight md:text-5xl">
               {project.result}
             </p>
           </div>
@@ -184,7 +184,7 @@ function ProjectDetail() {
           <div className="mx-auto flex max-w-[1600px] flex-col gap-6 px-6 py-16 md:flex-row md:items-end md:justify-between md:px-10 md:py-24">
             <div>
               <p className="eyebrow">Next commission →</p>
-              <p className="editorial mt-4 text-4xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-6xl">
+              <p className="editorial mt-4 text-3xl transition-colors group-hover:text-[color:var(--accent-gold)] md:text-6xl">
                 {next.title}
               </p>
             </div>

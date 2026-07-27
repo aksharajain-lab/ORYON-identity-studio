@@ -16,7 +16,7 @@ export function Footer() {
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-6">
             <p className="eyebrow">Colophon — MMXXVI</p>
-            <p className="editorial mt-6 text-4xl leading-[1.05] tracking-tight md:text-6xl">
+            <p className="editorial mt-6 text-3xl leading-[1.05] tracking-tight md:text-6xl">
               We don't design for
               <br />
               attention.

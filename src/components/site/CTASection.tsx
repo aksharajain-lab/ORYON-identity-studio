@@ -19,9 +19,9 @@ export function CTASection({
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="section-rule bg-surface">
-      <div className="container-editorial py-32 md:py-48">
+      <div className="container-editorial py-20 md:py-48">
         <div
-          className={`in-view grid gap-16 md:grid-cols-12 ${visible ? "visible" : ""}`}
+          className={`in-view grid gap-12 md:gap-16 md:grid-cols-12 ${visible ? "visible" : ""}`}
         >
           <p className="eyebrow md:col-span-3">{eyebrow}</p>
           <div className="md:col-span-9">
@@ -33,7 +33,7 @@ export function CTASection({
                 {supportingText}
               </p>
             )}
-            <div className="mt-12">
+            <div className="mt-8 md:mt-12">
               <Link
                 to={buttonTo}
                 className="glow-crimson inline-flex items-center gap-4 rounded-md border border-border px-8 py-5 text-[11px] uppercase tracking-[0.24em]"

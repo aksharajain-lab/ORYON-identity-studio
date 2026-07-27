@@ -60,12 +60,20 @@ function AboutPage() {
           <em className="gold-italic">observation</em> before ornament.
         </>
       }
-      lede="ORYON began as an editorial publication. Not to chase trends, but to study them. Everything we design still begins with the same question we started with: why do certain things stay with us while others disappear?"
+      lede="Founded by Akshara Jain, ORYON is a quiet digital identity and editorial studio creating memorable brands and websites through observation, storytelling, and deliberate design."
     >
-      <Section eyebrow="§ 01 — Philosophy" heading="Identity before aesthetics.">
+      <Section eyebrow="§ 01 — Behind ORYON" heading="Behind ORYON.">
+        <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+          Founded by Akshara Jain, ORYON began as an exploration of identity,
+          culture, and editorial storytelling before evolving into a digital
+          identity studio creating memorable brands and websites.
+        </p>
+      </Section>
+
+      <Section eyebrow="§ 02 — Philosophy" heading="Identity before aesthetics.">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
-            <p className="editorial text-3xl leading-[1.15] md:text-4xl">
+            <p              className="editorial text-2xl leading-[1.15] md:text-4xl">
               Beautiful design attracts attention. Meaningful design earns trust.
             </p>
           </div>
@@ -85,7 +93,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 02 — Why Identity Matters"
+        eyebrow="§ 03 — Why Identity Matters"
         heading="A business can exist without an identity."
         alt
       >
@@ -110,7 +118,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 03 — Our Vision"
+        eyebrow="§ 04 — Our Vision"
         heading="Editorial thinking, applied to identity."
       >
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
@@ -122,7 +130,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 04 — What We Believe"
+        eyebrow="§ 05 — What We Believe"
         heading="Four principles, held closely."
         alt
       >
@@ -147,7 +155,7 @@ function AboutPage() {
         </div>
       </Section>
 
-      <Section eyebrow="§ 05 — The ORYON Manifesto" heading="The house rules.">
+      <Section eyebrow="§ 06 — The ORYON Manifesto" heading="The house rules.">
         <ol className="mt-4 divide-y divide-border border-y border-border">
           {MANIFESTO.map((line, i) => (
             <li
@@ -165,13 +173,6 @@ function AboutPage() {
         </ol>
       </Section>
 
-      <Section eyebrow="§ 06 — Behind ORYON" heading="Behind ORYON.">
-        <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Founded by Akshara Jain, ORYON began as an exploration of identity,
-          culture, and editorial storytelling before evolving into a digital
-          identity studio creating memorable brands and websites.
-        </p>
-      </Section>
     </PageShell>
   );
 }

@@ -125,7 +125,7 @@ function ServicesPage() {
               <div className="grid gap-16 md:grid-cols-12">
                 <div className="md:col-span-4">
                   <p className="eyebrow">Service N° {s.n}</p>
-                  <h2 className="editorial mt-6 text-4xl leading-tight md:text-6xl">
+                  <h2 className="editorial mt-6 text-3xl leading-tight md:text-6xl">
                     {s.name}
                   </h2>
                   <p className="mt-6 max-w-sm text-base italic leading-relaxed text-[color:var(--accent-gold)]">

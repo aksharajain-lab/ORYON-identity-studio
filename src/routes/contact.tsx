@@ -51,7 +51,7 @@ function ContactPage() {
                 </p>
                 <a
                   href="mailto:jain.akshara.jain@gmail.com"
-                  className="editorial mt-2 block text-3xl transition-colors hover:text-[color:var(--accent-gold)] md:text-4xl"
+                  className="editorial mt-2 block text-xl break-all transition-colors hover:text-[color:var(--accent-gold)] md:text-4xl"
                 >
                   jain.akshara.jain@gmail.com
                 </a>
@@ -222,7 +222,7 @@ function ContactPage() {
 
       <section className="border-t border-border">
         <div className="mx-auto max-w-[1600px] px-6 py-24 md:px-10 md:py-40">
-          <p className="editorial text-4xl leading-[1.02] md:text-8xl">
+          <p className="editorial text-3xl leading-[1.02] md:text-8xl">
             "Every meaningful collaboration begins with a{" "}
             <em className="italic text-[color:var(--accent-gold)]">
               single conversation."

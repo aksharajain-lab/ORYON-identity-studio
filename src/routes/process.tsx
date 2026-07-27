@@ -120,7 +120,7 @@ function ProcessPage() {
           <div className="container-editorial py-24 md:py-40">
             <div className="grid gap-16 md:grid-cols-12">
               <div className="md:col-span-4">
-                <span className="editorial text-[8rem] leading-none text-[color:var(--accent-crimson)]/40 md:text-[12rem]">
+                <span className="editorial text-[4.5rem] leading-none text-[color:var(--accent-crimson)]/40 md:text-[12rem]">
                   {s.code}
                 </span>
                 <p className="eyebrow mt-6">File Ref — {s.slug}</p>
@@ -128,7 +128,7 @@ function ProcessPage() {
 
               <div className="md:col-span-5">
                 <p className="eyebrow">Stage {i + 1} of 5</p>
-                <h2 className="editorial mt-6 text-5xl leading-tight md:text-7xl">
+                <h2 className="editorial mt-6 text-4xl leading-tight md:text-7xl">
                   {s.name}
                 </h2>
                 <p className="mt-6 text-xl italic text-[color:var(--accent-gold)]">

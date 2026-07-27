@@ -83,7 +83,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="container-editorial grid w-full gap-16 pb-20 md:grid-cols-12 md:pb-32">
+      <div className="container-editorial grid w-full gap-16 pb-16 md:grid-cols-12 md:pb-32">
         <div className="md:col-span-2">
           <p className="eyebrow reveal">Vol. I · Issue 01</p>
           <p
@@ -95,7 +95,7 @@ function Hero() {
         </div>
 
         <div className="md:col-span-10">
-          <h1 className="editorial text-6xl leading-[0.92] md:text-[9.5rem]">
+          <h1 className="editorial text-5xl leading-[0.92] md:text-[9.5rem]">
             <span className="mask-in block">We don't design</span>
             <span className="mask-in block" style={{ animationDelay: "0.3s" }}>
               for attention.
@@ -134,7 +134,7 @@ function ShortIntro() {
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
-      <div className="container-editorial grid gap-12 py-24 md:grid-cols-12 md:py-40">
+      <div className="container-editorial grid gap-12 py-16 md:grid-cols-12 md:py-40">
         <p className={`eyebrow md:col-span-3 in-view ${visible ? "visible" : ""}`}>
           § 01 — Introduction
         </p>
@@ -144,7 +144,7 @@ function ShortIntro() {
             psychology, storytelling and digital design systems for
             businesses and creators.
           </p>
-          <div className="mt-12">
+          <div className="mt-8 md:mt-12">
             <ButtonLink to="/about" variant="ghost">
               Read the philosophy →
             </ButtonLink>
@@ -169,7 +169,7 @@ function ServicesPreview() {
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="section-rule bg-surface">
-      <div className="container-editorial py-24 md:py-40">
+      <div className="container-editorial py-16 md:py-40">
         <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
           <div>
             <p className="eyebrow">§ 02 — Offerings</p>
@@ -180,7 +180,7 @@ function ServicesPreview() {
           </ButtonLink>
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
+        <div className="mt-8 md:mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-3">
           {SERVICES_PREVIEW.map((s, i) => (
             <Link
               key={s.n}
@@ -206,7 +206,7 @@ function SelectedWork() {
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
-      <div className="container-editorial py-24 md:py-40">
+      <div className="container-editorial py-16 md:py-40">
         <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
           <div>
             <p className="eyebrow">§ 03 — Selected Work</p>
@@ -217,7 +217,7 @@ function SelectedWork() {
           </ButtonLink>
         </div>
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+        <div className="mt-8 md:mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
           {FEATURED_PROJECTS.map((p, i) => {
             const common = 
               `in-view group bg-surface p-8 transition-colors hover:bg-surface-2 md:p-12 stagger-${Math.min(i + 1, 4)} ${visible ? "visible" : ""}`;
@@ -269,15 +269,15 @@ function MethodPreview() {
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="section-rule bg-surface">
-      <div className="container-editorial py-24 md:py-40">
-        <div className={`in-view grid gap-16 md:grid-cols-12 ${visible ? "visible" : ""}`}>
+      <div className="container-editorial py-16 md:py-40">
+        <div className={`in-view grid gap-12 md:gap-16 md:grid-cols-12 ${visible ? "visible" : ""}`}>
           <div className="md:col-span-4">
             <p className="eyebrow">§ 04 — The Method</p>
             <h2 className="editorial mt-4 text-4xl md:text-6xl">
               Five stages.<br />
               <span className="gold-italic">One discipline.</span>
             </h2>
-            <div className="mt-10">
+            <div className="mt-8 md:mt-10">
               <ButtonLink to="/process" variant="ghost">
                 Read the dossier →
               </ButtonLink>

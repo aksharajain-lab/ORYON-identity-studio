@@ -92,7 +92,7 @@ function EditorialIndex() {
               </div>
               <div className="md:col-span-7 md:pt-8">
                 <p className="eyebrow">{featured.issue}</p>
-                <h2 className="editorial mt-6 text-4xl leading-tight transition-colors group-hover:text-[color:var(--accent-gold)] md:text-7xl">
+                <h2 className="editorial mt-6 text-3xl leading-tight transition-colors group-hover:text-[color:var(--accent-gold)] md:text-7xl">
                   {featured.title}
                 </h2>
                 <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
