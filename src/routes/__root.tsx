@@ -93,9 +93,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "ORYON is a digital identity and editorial studio creating websites, brand experiences, and cultural studies.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "/og-image.png" },
+      { property: "og:image", content: "https://oryon-identity-studio.vercel.app/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "/og-image.png" },
+      { name: "twitter:image", content: "https://oryon-identity-studio.vercel.app/og-image.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
