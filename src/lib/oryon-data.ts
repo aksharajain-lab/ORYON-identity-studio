@@ -65,7 +65,7 @@ export const PROJECTS: Project[] = [
     category: "Web Design",
     year: "2026",
     client: "Cutting Edge Salon",
-    footnote: "live soon",
+    link: "https://thecuttingedgesalon.vercel.app/",
     summary:
       "A refined digital identity and website for an atelier-style salon that values precision over volume.",
     overview:
