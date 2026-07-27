@@ -47,6 +47,12 @@ export function ProjectCard({
         <p className="mt-3 text-sm text-muted-foreground">
           {project.summary}
         </p>
+
+        {project.footnote && (
+          <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-[color:var(--accent-gold)] italic">
+            {project.footnote}
+          </p>
+        )}
       </div>
     </>
   );

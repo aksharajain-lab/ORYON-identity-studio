@@ -112,6 +112,12 @@ function PortfolioPage() {
         <p className="mt-3 text-sm text-muted-foreground">
           {p.summary}
         </p>
+
+        {p.footnote && (
+          <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-[color:var(--accent-gold)] italic">
+            {p.footnote}
+          </p>
+        )}
       </div>
     </>
   );

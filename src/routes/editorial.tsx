@@ -110,30 +110,52 @@ function EditorialIndex() {
       <section>
         <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-10 md:py-24">
           <div className="grid gap-x-10 gap-y-16 md:grid-cols-3">
-            {rest.map((a, i) => (
-              <Link
-                key={a.slug}
-                to="/editorial/$slug"
-                params={{ slug: a.slug }}
-                className="group block border-t border-border pt-8"
-              >
-                <div className="flex items-center justify-between">
-                  <p className="eyebrow">{a.category}</p>
-                  <span className="text-xs text-muted-foreground">
-                    N° {String(i + 2).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="editorial mt-6 text-2xl leading-tight transition-colors group-hover:text-[color:var(--accent-gold)] md:text-3xl">
-                  {a.title}
-                </h3>
-                <p className="mt-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {a.dek}
-                </p>
-                <p className="mt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
-                  {a.readingTime} · {a.issue}
-                </p>
-              </Link>
-            ))}
+            {rest.map((a, i) => {
+              const card = (
+                <>
+                  <div className="flex items-center justify-between">
+                    <p className="eyebrow">{a.category}</p>
+                    <span className="text-xs text-muted-foreground">
+                      N° {String(i + 2).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="editorial mt-6 text-2xl leading-tight md:text-3xl">
+                    {a.title}
+                  </h3>
+                  <p className="mt-6 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                    {a.dek}
+                  </p>
+                  <p className="mt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+                    {a.comingSoon ? (
+                      <span className="text-[color:var(--accent-gold)] font-semibold">
+                        Coming Soon
+                      </span>
+                    ) : (
+                      <>{a.readingTime} · {a.issue}</>
+                    )}
+                  </p>
+                </>
+              );
+
+              if (a.comingSoon) {
+                return (
+                  <div key={a.slug} className="block border-t border-border pt-8 opacity-70">
+                    {card}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={a.slug}
+                  to="/editorial/$slug"
+                  params={{ slug: a.slug }}
+                  className="group block border-t border-border pt-8"
+                >
+                  {card}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
