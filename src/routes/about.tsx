@@ -56,21 +56,24 @@ function AboutPage() {
       eyebrow="§ About — File N° 002"
       title={
         <>
-          A studio built on{" "}
-          <em className="gold-italic">observation</em> before ornament.
+          Behind ORYON.
+          <br />
+          <span className="editorial mt-4 block text-4xl md:text-6xl">
+            A studio built on{" "}
+            <em className="gold-italic">observation</em> before ornament.
+          </span>
         </>
       }
-      lede="Founded by Akshara Jain, ORYON is a quiet digital identity and editorial studio creating memorable brands and websites through observation, storytelling, and deliberate design."
+      lede={
+        <>
+          Founded by Akshara Jain,{" "}
+          <em className="gold-italic">ORYON</em> is a quiet digital identity
+          and editorial studio creating memorable brands and websites through
+          observation, storytelling, and deliberate design.
+        </>
+      }
     >
-      <Section eyebrow="§ 01 — Behind ORYON" heading="Behind ORYON.">
-        <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-          Founded by Akshara Jain, ORYON began as an exploration of identity,
-          culture, and editorial storytelling before evolving into a digital
-          identity studio creating memorable brands and websites.
-        </p>
-      </Section>
-
-      <Section eyebrow="§ 02 — Philosophy" heading="Identity before aesthetics.">
+      <Section eyebrow="§ 01 — Philosophy" heading="Identity before aesthetics.">
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-6">
             <p              className="editorial text-2xl leading-[1.15] md:text-4xl">
@@ -93,7 +96,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 03 — Why Identity Matters"
+        eyebrow="§ 02 — Why Identity Matters"
         heading="A business can exist without an identity."
         alt
       >
@@ -118,7 +121,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 04 — Our Vision"
+        eyebrow="§ 03 — Our Vision"
         heading="Editorial thinking, applied to identity."
       >
         <p className="max-w-3xl text-lg leading-relaxed text-muted-foreground md:text-xl">
@@ -130,7 +133,7 @@ function AboutPage() {
       </Section>
 
       <Section
-        eyebrow="§ 05 — What We Believe"
+        eyebrow="§ 04 — What We Believe"
         heading="Four principles, held closely."
         alt
       >
@@ -155,7 +158,7 @@ function AboutPage() {
         </div>
       </Section>
 
-      <Section eyebrow="§ 06 — The ORYON Manifesto" heading="The house rules.">
+      <Section eyebrow="§ 05 — The ORYON Manifesto" heading="The house rules.">
         <ol className="mt-4 divide-y divide-border border-y border-border">
           {MANIFESTO.map((line, i) => (
             <li

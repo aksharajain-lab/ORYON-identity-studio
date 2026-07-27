@@ -74,7 +74,7 @@ export function Footer() {
 
         <div className="mt-20 flex flex-col items-start justify-between gap-4 border-t border-border pt-8 text-[11px] uppercase tracking-[0.24em] text-muted-foreground md:flex-row md:items-center">
           <span>© ORYON Archive — All work retained</span>
-          <span>Issue 07 / Vol. II</span>
+          <span>Issue 01 / Vol. I</span>
           <span>Composed in Cormorant &amp; Inter</span>
         </div>
       </div>
