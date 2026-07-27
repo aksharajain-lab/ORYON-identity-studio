@@ -36,6 +36,19 @@ export function ArticleCard({
     </>
   );
 
+  if (article.link) {
+    return (
+      <a
+        href={article.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group block border-t border-border pt-8"
+      >
+        {content}
+      </a>
+    );
+  }
+
   if (article.comingSoon) {
     return (
       <div className="block border-t border-border pt-8 opacity-70">

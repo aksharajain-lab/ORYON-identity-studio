@@ -146,34 +146,34 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "light-yagami-character-study",
-    title: "Light Yagami: The God Complex of a Mortal",
+    title: "Light Yagami: Anatomy of a God Complex",
     category: "Character Analysis",
     issue: "OBSIDIAN — Issue N°03",
     readingTime: "15 min",
-    comingSoon: true,
-    dek: "An examination of what happens when a brilliant mind mistakes itself for divine will, and the psychology of absolute power.",
+    link: "https://heyzine.com/flip-book/ddec69e552.html",
+    dek: "An editorial examination of how idealism, absolute power, and moral certainty transformed Light Yagami from a brilliant student into the architect of his own downfall.",
     chapters: [
       {
         heading: "I. The God Delusion",
         body: [
-          "Coming soon. This case study is being prepared for publication.",
+          "An editorial examination of how idealism, absolute power, and moral certainty transformed Light Yagami from a brilliant student into the architect of his own downfall.",
         ],
       },
     ],
   },
   {
     slug: "sherlock-holmes-character-study",
-    title: "Sherlock Holmes: The Method in the Madness",
+    title: "Sherlock Holmes: The Cost of Observation",
     category: "Character Analysis",
     issue: "OBSIDIAN — Issue N°04",
     readingTime: "14 min",
-    comingSoon: true,
-    dek: "Why the world's only consulting detective is less about deduction and more about the discipline of attention.",
+    link: "https://heyzine.com/flip-book/5eb8f2e65a.html",
+    dek: "Exploring deduction as both a gift and a burden, examining how Sherlock Holmes' relentless pursuit of truth shapes his identity, relationships, and humanity.",
     chapters: [
       {
         heading: "I. The Method",
         body: [
-          "Coming soon. This case study is being prepared for publication.",
+          "Exploring deduction as both a gift and a burden, examining how Sherlock Holmes' relentless pursuit of truth shapes his identity, relationships, and humanity.",
         ],
       },
     ],

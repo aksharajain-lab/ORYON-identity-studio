@@ -137,6 +137,20 @@ function EditorialIndex() {
                 </>
               );
 
+              if (a.link) {
+                return (
+                  <a
+                    key={a.slug}
+                    href={a.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block border-t border-border pt-8"
+                  >
+                    {card}
+                  </a>
+                );
+              }
+
               if (a.comingSoon) {
                 return (
                   <div key={a.slug} className="block border-t border-border pt-8 opacity-70">
