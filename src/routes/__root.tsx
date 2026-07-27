@@ -71,18 +71,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ORYON — Editorial Creative Studio" },
+      { title: "ORYON — Digital Identity & Editorial Studio" },
       {
         name: "description",
         content:
-          "ORYON is an editorial creative studio combining branding, psychology and digital design. We don't sell designs. We build identities.",
+          "ORYON is a digital identity and editorial studio creating websites, brand experiences, and cultural studies.",
+      },
+      {
+        name: "keywords",
+        content:
+          "web design, digital identity, branding, editorial design, ORYON",
       },
       { name: "author", content: "ORYON" },
-      { property: "og:title", content: "ORYON — Editorial Creative Studio" },
+      {
+        property: "og:title",
+        content: "ORYON — Digital Identity & Editorial Studio",
+      },
       {
         property: "og:description",
         content:
-          "We don't design for attention. We design for memory. Branding, editorial and digital experiences.",
+          "ORYON is a digital identity and editorial studio creating websites, brand experiences, and cultural studies.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
