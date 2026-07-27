@@ -48,7 +48,7 @@ export function ArticleCard({
     <Link
       to="/editorial/$slug"
       params={{ slug: article.slug }}
-      className="group block border-t border-border pt-8"
+      className="group block border-t border-border pt-8 card-hover-ghost"
     >
       {content}
     </Link>

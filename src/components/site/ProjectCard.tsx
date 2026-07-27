@@ -57,13 +57,15 @@ export function ProjectCard({
     </>
   );
 
+  const wrapperClass = `group block card-hover ${span ?? ""}`;
+
   if (project.link) {
     return (
       <a
         href={project.link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`group block ${span ?? ""}`}
+        className={wrapperClass}
       >
         {content}
       </a>
@@ -74,7 +76,7 @@ export function ProjectCard({
     <Link
       to="/portfolio/$slug"
       params={{ slug: project.slug }}
-      className={`group block ${span ?? ""}`}
+      className={wrapperClass}
     >
       {content}
     </Link>

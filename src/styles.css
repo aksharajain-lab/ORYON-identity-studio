@@ -120,6 +120,17 @@ body {
   }
 }
 
+@keyframes oryon-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes oryon-reveal {
   from {
     opacity: 0;
@@ -143,6 +154,9 @@ body {
   to { clip-path: inset(0 0 0 0); }
 }
 
+@utility page-enter {
+  animation: oryon-page-enter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
 @utility reveal {
   animation: oryon-reveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
@@ -159,6 +173,22 @@ body {
     box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent-crimson) 60%, transparent),
       0 8px 40px -12px color-mix(in oklab, var(--accent-crimson) 55%, transparent);
     border-color: color-mix(in oklab, var(--accent-crimson) 70%, transparent);
+  }
+}
+
+@utility card-hover {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px -16px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@utility card-hover-ghost {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  &:hover {
+    transform: translateY(-2px);
   }
 }
 

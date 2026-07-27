@@ -122,13 +122,15 @@ function PortfolioPage() {
     </>
   );
 
+  const wrapperClass = `group block card-hover ${span}`;
+
   return p.link ? (
     <a
       key={p.slug}
       href={p.link}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group block ${span}`}
+      className={wrapperClass}
     >
       {content}
     </a>
@@ -137,7 +139,7 @@ function PortfolioPage() {
       key={p.slug}
       to="/portfolio/$slug"
       params={{ slug: p.slug }}
-      className={`group block ${span}`}
+      className={wrapperClass}
     >
       {content}
     </Link>

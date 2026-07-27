@@ -72,7 +72,7 @@ function EditorialIndex() {
   href="https://heyzine.com/flip-book/d16cb564cc.html"
   target="_blank"
   rel="noopener noreferrer"
-  className="group block"
+  className="group block card-hover-ghost"
 >
             <div className="mx-auto grid max-w-[1600px] gap-12 px-6 py-20 md:grid-cols-12 md:px-10 md:py-32">
               <div className="md:col-span-5">
@@ -150,7 +150,7 @@ function EditorialIndex() {
                   key={a.slug}
                   to="/editorial/$slug"
                   params={{ slug: a.slug }}
-                  className="group block border-t border-border pt-8"
+                  className="group block border-t border-border pt-8 card-hover-ghost"
                 >
                   {card}
                 </Link>
