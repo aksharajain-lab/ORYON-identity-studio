@@ -1,10 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import { PROJECTS, ARTICLES } from "@/lib/oryon-data";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { ProjectCardFeatured } from "@/components/site/ProjectCard";
-import { ArticleCard } from "@/components/site/ArticleCard";
 import { CTASection } from "@/components/site/CTASection";
 import { ButtonLink } from "@/components/site/ButtonLink";
 import { useInView } from "@/hooks/use-in-view";
@@ -36,9 +33,7 @@ function Home() {
       <Hero />
       <ShortIntro />
       <ServicesPreview />
-      <FeaturedProjects />
       <MethodPreview />
-      <FeaturedEditorial />
       <CTASection
         eyebrow="§ 06 — Commission"
         headline={
@@ -212,45 +207,6 @@ function ServicesPreview() {
   );
 }
 
-function FeaturedProjects() {
-  const featured = PROJECTS.slice(0, 3);
-  const { ref, visible } = useInView();
-
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
-      <div className="container-editorial py-24 md:py-40">
-        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
-          <div>
-            <p className="eyebrow">§ 03 — Selected Work</p>
-            <h2 className="editorial mt-4 text-4xl md:text-6xl">Recent studies.</h2>
-          </div>
-          <ButtonLink to="/portfolio" variant="ghost" className="hidden md:inline-flex">
-            All projects →
-          </ButtonLink>
-        </div>
-
-        <div className="mt-16 grid gap-16 md:grid-cols-12">
-          {featured.map((p, i) => (
-            <ProjectCardFeatured
-              key={p.slug}
-              project={p}
-              index={i}
-              span={
-                i === 0
-                  ? "md:col-span-8"
-                  : i === 2
-                    ? "md:col-span-4 md:col-start-9"
-                    : "md:col-span-4"
-              }
-              aspectRatio={i === 0 ? "16/10" : "4/5"}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const METHOD_STAGES = [
   { code: "I", name: "Observe" },
   { code: "II", name: "Decode" },
@@ -302,29 +258,4 @@ function MethodPreview() {
   );
 }
 
-function FeaturedEditorial() {
-  const featured = ARTICLES.slice(0, 3);
-  const { ref, visible } = useInView();
 
-  return (
-    <section ref={ref as React.RefObject<HTMLElement>} className="section-rule">
-      <div className="container-editorial py-24 md:py-40">
-        <div className={`in-view flex items-end justify-between border-b border-border pb-8 ${visible ? "visible" : ""}`}>
-          <div>
-            <p className="eyebrow">§ 05 — The Archive</p>
-            <h2 className="editorial mt-4 text-4xl md:text-6xl">From the Editorial.</h2>
-          </div>
-          <ButtonLink to="/editorial" variant="ghost" className="hidden md:inline-flex">
-            Enter the archive →
-          </ButtonLink>
-        </div>
-
-        <div className="mt-16 grid gap-x-10 gap-y-16 md:grid-cols-3">
-          {featured.map((a, i) => (
-            <ArticleCard key={a.slug} article={a} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
