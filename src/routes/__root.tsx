@@ -84,6 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "ORYON" },
       {
+        name: "google-site-verification",
+        content: "MtwvK-hQ-954-tsGRtvx6ccks4-vdpr-H6s_brkLLIc",
+      },
+      {
         property: "og:title",
         content: "ORYON — Digital Identity & Editorial Studio",
       },
