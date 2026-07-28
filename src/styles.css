@@ -239,6 +239,20 @@ body {
   }
 }
 
+/* Native select dropdown option styling */
+select option {
+  background: var(--background);
+  color: var(--foreground);
+}
+select option:disabled {
+  color: var(--muted-text);
+}
+/* Gold accent on hover and selected item where browser supports it */
+select option:hover,
+select option:checked {
+  color: var(--accent-gold);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal, .drift, .mask-in, .in-view {
     animation: none !important;
