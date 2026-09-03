@@ -197,3 +197,30 @@ export const ARTICLE_CATEGORIES = [
   "Character Analysis",
   "Psychology Essays",
 ] as const;
+
+export type MuseProduct = {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: readonly string[];
+  link: string;
+};
+
+/**
+ * ORYON Muse — the studio's flagship AI product. Featured across the site as a
+ * digital product, distinct from the client-work index above.
+ */
+export const ORYON_MUSE: MuseProduct = {
+  title: "ORYON Muse",
+  subtitle: "AI-powered aesthetic identity companion",
+  description:
+    "ORYON Muse is an AI-powered product that helps users discover, analyze, and refine their visual identity through conversational AI, aesthetic analysis, and editorial design.",
+  tags: [
+    "AI Product",
+    "UX/UI",
+    "Product Design",
+    "Brand Identity",
+    "Prompt Engineering",
+  ],
+  link: "https://visual-aesthetic-lab.vercel.app/",
+};

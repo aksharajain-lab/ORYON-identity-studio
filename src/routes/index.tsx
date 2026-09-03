@@ -4,6 +4,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { CTASection } from "@/components/site/CTASection";
 import { ButtonLink } from "@/components/site/ButtonLink";
+import { MuseFeature } from "@/components/site/MuseFeature";
 import { useInView } from "@/hooks/use-in-view";
 import { PROJECTS } from "@/lib/oryon-data";
 
@@ -217,7 +218,9 @@ function SelectedWork() {
           </ButtonLink>
         </div>
 
-        <div className="mt-8 md:mt-12 grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
+        <MuseFeature className="mt-8 md:mt-12 mb-8 md:mb-12" />
+
+        <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border md:grid-cols-2">
           {FEATURED_PROJECTS.map((p, i) => {
             const common = 
               `in-view group bg-surface p-8 transition-colors hover:bg-surface-2 md:p-12 stagger-${Math.min(i + 1, 4)} ${visible ? "visible" : ""}`;

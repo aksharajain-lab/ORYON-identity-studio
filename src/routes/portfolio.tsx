@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
+import { MuseFeature } from "@/components/site/MuseFeature";
 import { PageShell } from "@/components/site/PageShell";
 import { PROJECTS, CATEGORIES } from "@/lib/oryon-data";
 
@@ -65,6 +66,8 @@ function PortfolioPage() {
       </div>
 
       <div className="mx-auto max-w-[1600px] px-6 py-16 md:px-10 md:py-24">
+        <MuseFeature className="mb-16 md:mb-24" />
+
         <div className="grid gap-x-10 gap-y-20 md:grid-cols-12">
         {filtered.map((p, i) => {
   const span =
